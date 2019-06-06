@@ -86,7 +86,35 @@
                         "type": "application/x-yaml"
                     }, 
                     "default": "IyBteSBnbG9iYWwgY29uZmlnCmdsb2JhbDoKICBzY3JhcGVfaW50ZXJ2YWw6ICAgICAxNXMgIyBTZXQgdGhlIHNjcmFwZSBpbnRlcnZhbCB0byBldmVyeSAxNSBzZWNvbmRzLiBEZWZhdWx0IGlzIGV2ZXJ5IDEgbWludXRlLgogIGV2YWx1YXRpb25faW50ZXJ2YWw6IDE1cyAjIEV2YWx1YXRlIHJ1bGVzIGV2ZXJ5IDE1IHNlY29uZHMuIFRoZSBkZWZhdWx0IGlzIGV2ZXJ5IDEgbWludXRlLgogICMgc2NyYXBlX3RpbWVvdXQgaXMgc2V0IHRvIHRoZSBnbG9iYWwgZGVmYXVsdCAoMTBzKS4KCiMgQSBzY3JhcGUgY29uZmlndXJhdGlvbiBjb250YWluaW5nIGV4YWN0bHkgb25lIGVuZHBvaW50IHRvIHNjcmFwZToKIyBIZXJlIGl0J3MgUHJvbWV0aGV1cyBpdHNlbGYuCnNjcmFwZV9jb25maWdzOgogIC0gam9iX25hbWU6IG1hc3Rlci1tZXRyaWNzCiAgICAjIEFsbCBtYXN0ZXIgbm9kZXMgYXJlIGF2YWlsYWJsZSBhdCBtYXN0ZXIubWVzb3MgdmlhIHRoZWlyIEEgcmVjb3JkCiAgICBkbnNfc2RfY29uZmlnczoKICAgICAgLSBuYW1lczogWydtYXN0ZXIubWVzb3MnXQogICAgICAgIHR5cGU6ICdBJwogICAgICAgIHBvcnQ6IDYxMDkxCgogIC0gam9iX25hbWU6IGFnZW50LW1ldHJpY3MKICAgICMgQWxsIGFnZW50IG5vZGVzIGFyZSB3cml0dGVuIHJlZ3VsYXJseSB0byBkaXNjb3ZlcnkvYWdlbnRzLmpzb24KICAgIGZpbGVfc2RfY29uZmlnczoKICAgICAgLSBmaWxlczogWydkaXNjb3ZlcnkvYWdlbnRzLmpzb24nXQogICAgICAKICAjIFNlbGYgbW9uaXRvcgogIC0gam9iX25hbWU6IHByb21ldGhldXMKICAgIHNjcmFwZV9pbnRlcnZhbDogNXMKICAgIHN0YXRpY19jb25maWdzOgogICAgICAtIHRhcmdldHM6IFsncHJvbWV0aGV1cy5wcm9tZXRoZXVzLmw0bGIudGhpc2Rjb3MuZGlyZWN0b3J5OjkwOTAnXQogICAgICAKICAtIGpvYl9uYW1lOiBwdXNoZ2F0ZXdheQogICAgaG9ub3JfbGFiZWxzOiB0cnVlCiAgICBzY3JhcGVfaW50ZXJ2YWw6IDE1cwogICAgZG5zX3NkX2NvbmZpZ3M6CiAgICAtIG5hbWVzOiBbJ3B1c2hnYXRld2F5LTAtc2VydmVyLnt7RlJBTUVXT1JLX0hPU1R9fSddCiAgICAgIHR5cGU6ICdBJwogICAgICBwb3J0OiA5MDkxCiAgICAgIApydWxlX2ZpbGVzOgogICAgIyBzZXQgb2YgcnVsZSBmaWxlcyB0byByZWFkIGFsZXJ0aW5nIHJ1bGVzIGZyb20KICAgIC0gICdydWxlcy55bWwnICAgICAgCiAgICAKYWxlcnRpbmc6CiAgYWxlcnRtYW5hZ2VyczoKICAgIC0gc3RhdGljX2NvbmZpZ3M6CiAgICAgIC0gdGFyZ2V0czogWydhbGVydG1hbmFnZXIucHJvbWV0aGV1cy5sNGxiLnRoaXNkY29zLmRpcmVjdG9yeTo5MDkzJ10KCg"
-                }, 
+                },
+                "retention_time" : {
+                    "title": "Prometheus retention size for data. EXPERIMENTAL", 
+                    "description": "The amount of data in time to keep on system", 
+                    "type": "string",
+                    "default": "15d"
+                },
+                "retention_size" : {
+                    "title": "Prometheus retention time for data", 
+                    "description": "The how much data to keep in tsdb", 
+                    "type": "string",
+                    "default": "0"
+                },
+                "admin_router_proxy": {
+                    "description": "Configuration for Admin Router integration",
+                    "type": "object",
+                    "properties": {
+                      "enabled": {
+                        "description": "Whether to enable Admin Router integration for Prometheus UI",
+                        "type": "boolean",
+                        "default": true
+                      },
+                      "url": {
+                        "description": "The DC/OS URL (without the tailing slash)",
+                        "type": "string",
+                        "default": ""
+                      }
+                    }
+                  },
                 "rules": {
                     "title": "Prometheus rules", 
                     "description": "prometheus rules base64 encoded", 

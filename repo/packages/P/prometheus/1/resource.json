@@ -11,7 +11,7 @@
             "bootstrap-zip": "https://downloads.mesosphere.com/dcos-commons/artifacts/0.42.1/bootstrap.zip", 
             "executor-zip": "https://downloads.mesosphere.com/dcos-commons/artifacts/0.42.1/executor.zip", 
             "scheduler-zip": "https://ecosystem-repo.s3.amazonaws.com/sdk/artifacts/0.42.1/operator-scheduler.zip", 
-            "svc": "https://ecosystem-repo.s3.amazonaws.com/prometheus/artifacts/0.1.1-2.3.2/svc.yml", 
+            "svc": "http://10.0.0.17:8888/prometheus/artifacts/0.1.1-2.3.2/svc.yml", 
             "prometheus-tar-gz": "https://github.com/prometheus/prometheus/releases/download/v2.3.2/prometheus-2.3.2.linux-amd64.tar.gz", 
             "alertmanager-tar-gz": "https://github.com/prometheus/alertmanager/releases/download/v0.15.1/alertmanager-0.15.1.linux-amd64.tar.gz", 
             "jq": "https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64", 

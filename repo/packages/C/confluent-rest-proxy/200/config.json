@@ -1,12 +1,32 @@
 {
   "$schema": "http://json-schema.org/schema#",
   "properties": {
-    "connect": {
+    "rest-proxy": {
+      "type": "object",
+      "description": "Rest proxy service configuration properties",
       "properties": {
         "name": {
-          "default": "connect",
-          "description": "Service name for the connect worker application(s)",
-          "type": "string"
+          "title": "Rest proxy service name",
+          "description": "The name of the rest proxy service instance",
+          "type": "string",
+          "default": "rest-proxy"
+        },
+        "listener_protocol": {
+          "title": "Rest proxy listener protocol",
+          "description": "Rest proxy listener protocol, http or https.",
+          "type": "string",
+          "default": "http"
+        },
+        "keystore_secret": {
+          "title": "Keystore secret",
+          "description": "Keystore secret.",
+          "type": "string",
+          "default": ""
+        },
+        "ssl_client_auth": {
+          "description": "Used for HTTPS. Whether or not to require the HTTPS client to authenticate via the server's trust store.",
+          "type": "boolean",
+          "default": false
         },
         "virtual_network_enabled": {
           "description": "Enable virtual networking",
@@ -50,60 +70,49 @@
         },
         "cpus": {
           "default": 2,
-          "description": "CPU shares to allocate to each connect worker instance.",
-          "minimum": 1,
+          "description": "CPU shares to allocate to each rest-proxy instance.",
+          "minimum": 2,
           "type": "number"
         },
         "mem": {
           "default": 1024,
-          "description": "Memory (MB) to allocate to each connect worker instance.",
+          "description": "Memory (MB) to allocate to each rest-proxy instance.",
           "minimum": 512,
           "type": "number"
         },
         "heap": {
           "default": 768,
-          "description": "JVM heap allocation (in MB) for connect worker task; should be ~256MB less than total memory for the instance.",
+          "description": "JVM heap allocation (in MB) for rest-proxy task; should be ~256MB less than total memory for the instance.",
           "minimum": 256,
           "type": "number"
         },
         "role": {
           "default": "*",
-          "description": "Deploy connect worker only on nodes with this role.",
+          "description": "Deploy rest-proxy only on nodes with this role.",
           "type": "string"
         },
-        "group_id": {
-          "description": "A unique string that identifies the Connect cluster group this worker belongs to.",
+        "access-control-allow-methods": {
+          "description": "Set value to Jetty Access-Control-Allow-Origin header for specified methods",
           "type": "string",
-          "default": "dcos-connect-group"
+          "default": ""
         },
-        "key_converter": {
-          "description": "Key converter, e.g. org.apache.kafka.connect.json.JsonConverter, io.confluent.connect.avro.AvroConverter, ...",
+        "access-control-allow-origin": {
+          "description": "Set value for Jetty Access-Control-Allow-Origin header",
           "type": "string",
-          "default": "io.confluent.connect.avro.AvroConverter"
+          "default": ""
         },
-        "key_converter_schema_enable": {
-          "description": "Key converter schema check enable.",
-          "type": "boolean",
-          "default": true
-        },
-        "value_converter": {
-          "description": "Value converter, e.g. org.apache.kafka.connect.json.JsonConverter, io.confluent.connect.avro.AvroConverter, ...",
-          "type": "string",
-          "default": "io.confluent.connect.avro.AvroConverter"
-        },
-        "value_converter_schema_enable": {
-          "description": "Value converter schema check enable.",
-          "type": "boolean",
-          "default": true
+        "ciphers": {
+          "default": "TLS_RSA_WITH_AES_128_GCM_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_256_GCM_SHA384,TLS_RSA_WITH_AES_256_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_256_GCM_SHA384,TLS_DHE_RSA_WITH_AES_256_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384",
+          "description": "Comma-separated list of JSSE Cipher Suite Names",
+          "type": "string"
         }
       },
       "required": [
+        "name",
         "cpus",
         "mem",
-        "instances",
-        "name"
-      ],
-      "type": "object"
+        "instances"
+      ]
     },
     "kafka": {
       "type": "object",
@@ -170,11 +179,11 @@
     },
     "schema-registry": {
       "type": "object",
-      "description": "Connect schema registry configuration",
+      "description": "Rest proxy schema registry configuration",
       "properties": {
         "url": {
           "title": "Schema registry url",
-          "description": "The base URL for the schema registry.",
+          "description": "The base URL for the schema registry that should be used by the Avro serializer.",
           "type": "string",
           "default": "http://schema-registry.marathon.l4lb.thisdcos.directory:8081"
         }

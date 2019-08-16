@@ -76,6 +76,16 @@
           "type": "string",
           "default": "dcos-connect-group"
         },
+        "access-control-allow-methods": {
+          "description": "Access control allow methods allows cross origin HTTP requests,e.g GET,POST,PUT,DELETE,HEAD",
+          "type": "string",
+          "default": ""
+        },
+        "access-control-allow-origin": {
+          "description": "Access control allow origin tells which domain should be accessible,by default empty string means that the resource can be accessed by any domain",
+          "type": "string",
+          "default": ""
+        },
         "key_converter": {
           "description": "Key converter, e.g. org.apache.kafka.connect.json.JsonConverter, io.confluent.connect.avro.AvroConverter, ...",
           "type": "string",

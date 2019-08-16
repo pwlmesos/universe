@@ -61,7 +61,7 @@
         "user": {
           "description": "The user that the service will run as.",
           "type": "string",
-          "default": "root",
+          "default": "nobody",
           "title": "User"
         },
         "instances": {
@@ -133,6 +133,12 @@
           "description": "Protocol used to communicate with brokers. Valid values are: PLAINTEXT, SSL, SASL_PLAINTEXT, SASL_SSL",
           "type": "string",
           "default": "PLAINTEXT"
+        },
+        "kafkastore-bootstrap-servers": {
+          "title": "Kafka bootstrap servers",
+          "default": "",
+          "description": "A list of Kafka brokers to connect to. For example, PLAINTEXT://kafka-0-broker.confluent-kafka.autoip.dcos.thisdcos.directory:9092,SSL://kafka-0-broker.confluent-kafka.autoip.dcos.thisdcos.directory:9092",
+          "type": "string"
         },
         "kerberos_enabled": {
           "description": "Enable kerberos",

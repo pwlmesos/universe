@@ -1,21 +1,16 @@
 {
   "$schema": "http://json-schema.org/schema#",
   "properties": {
-    "registry": {
+    "control-center": {
       "properties": {
         "name": {
-          "default": "schema-registry",
-          "description": "Service name for the schema-registry instance(s)",
-          "type": "string"
-        },
-        "zookeeper_namespace": {
-          "default": "dcos-service-confluent-kafka/schema-registry",
-          "description": "Zookeeper namespace for storing registry.",
+          "default": "control-center",
+          "description": "Name for this control-center application",
           "type": "string"
         },
         "listener_protocol": {
-          "title": "Registry listener protocol",
-          "description": "Registry listener protocol, http or https.",
+          "title": "Control center listener protocol",
+          "description": "Control center listener protocol, http or https.",
           "type": "string",
           "default": "http"
         },
@@ -24,11 +19,6 @@
           "description": "Keystore secret.",
           "type": "string",
           "default": ""
-        },
-        "ssl_client_auth": {
-          "description": "Used for HTTPS. Whether or not to require the HTTPS client to authenticate via the server's trust store.",
-          "type": "boolean",
-          "default": false
         },
         "virtual_network_enabled": {
           "description": "Enable virtual networking",
@@ -66,42 +56,50 @@
         },
         "instances": {
           "default": 1,
-          "description": "Number of instances to run (currently limited to 1).",
+          "description": "Number of instances to run.",
           "minimum": 1,
-          "maximum": 2,
           "type": "integer"
         },
         "cpus": {
-          "default": 1,
-          "description": "CPU shares to allocate to each schema-registry instance.",
-          "minimum": 1,
+          "default": 2,
+          "description": "CPU shares to allocate to each control-center instance.",
+          "minimum": 2,
           "type": "number"
         },
         "mem": {
-          "default": 512,
-          "description": "Memory (MB) to allocate to each schema-registry instance.",
-          "minimum": 320,
-          "type": "number"
-        },
-        "heap": {
-          "default": 256,
-          "description": "JVM heap allocation (in MB) for connect worker task; should be no greater than ~64MB less than total memory for the instance.",
-          "minimum": 256,
+          "default": 4096,
+          "description": "Memory (MB) to allocate to each control-center task.",
+          "minimum": 4096,
           "type": "number"
         },
         "role": {
           "default": "*",
-          "description": "Deploy schema-registry only on nodes with this role.",
+          "description": "Deploy control-center only on nodes with this role.",
           "type": "string"
         },
-        "access-control-allow-methods": {
-          "default": "",
-          "description": "Set value to Jetty Access-Control-Allow-Origin header for specified methods",
-          "type": "string"
+        "confluent-controlcenter-internal-topics-partitions": {
+          "default": 3,
+          "description": "Parition count for internal control-center kafka topics",
+          "type": "number"
         },
-        "access-control-allow-origin": {
+        "confluent-controlcenter-internal-topics-replication": {
+          "default": 2,
+          "description": "Replication factor for internal control-center kafka topics",
+          "type": "number"
+        },
+        "confluent-monitoring-interceptor-topic-partitions": {
+          "default": 3,
+          "description": "Parition count for kafka topics used to store data from the interceptor classes",
+          "type": "number"
+        },
+        "confluent-monitoring-interceptor-topic-replication": {
+          "default": 2,
+          "description": "Replication factor for kafka topics used to store data from the interceptor classes",
+          "type": "number"
+        },
+        "confluent-license": {
           "default": "",
-          "description": "Set value for Jetty Access-Control-Allow-Origin header",
+          "description": "License key for Confluent Enterprise (default is 30-day trial)",
           "type": "string"
         },
         "ciphers": {
@@ -120,8 +118,14 @@
     },
     "kafka": {
       "type": "object",
-      "description": "Rest proxy kafka service configuration",
+      "description": "Control center kafka service configuration",
       "properties": {
+        "bootstrap_servers": {
+          "title": "Kafka bootstrap servers",
+          "description": "The name of the kafka bootstrapserver. Broker vip (for TLS it is broker-tls.confluent-kafka.l4lb.thisdcos.directory:9093) or comma separated list of broker dns names (like in the kerberos case). Note slahes in a kafka service name have to be removed.",
+          "type": "string",
+          "default": "broker.confluent-kafka.l4lb.thisdcos.directory:9092"
+        },
         "zookeeper_connect": {
           "title": "Zookeeper connect",
           "description": "... . Note slahes in a kafka service name have to be removed, all excpet the first get replaced by two underscores.",
@@ -133,12 +137,6 @@
           "description": "Protocol used to communicate with brokers. Valid values are: PLAINTEXT, SSL, SASL_PLAINTEXT, SASL_SSL",
           "type": "string",
           "default": "PLAINTEXT"
-        },
-        "kafkastore-bootstrap-servers": {
-          "title": "Kafka bootstrap servers",
-          "default": "",
-          "description": "A list of Kafka brokers to connect to. For example, PLAINTEXT://kafka-0-broker.confluent-kafka.autoip.dcos.thisdcos.directory:9092,SSL://kafka-0-broker.confluent-kafka.autoip.dcos.thisdcos.directory:9092",
-          "type": "string"
         },
         "kerberos_enabled": {
           "description": "Enable kerberos",
@@ -175,7 +173,26 @@
           "type": "string",
           "default": "krb5"
         }
-      }
+      },
+      "required": [
+        "bootstrap_servers",
+        "zookeeper_connect"
+      ]
+    },
+    "connect": {
+      "type": "object",
+      "description": "Control center connect service configuration",
+      "properties": {
+        "connect_cluster": {
+          "title": "Control center connect cluster configuration",
+          "description": "Comma-separated list of URLs for the Connect cluster. This must be set if you wish to manage a connect cluster.",
+          "type": "string",
+          "default": "connect.marathon.l4lb.thisdcos.directory:8083"
+        }
+      },
+      "required": [
+        "connect_cluster"
+      ]
     }
   },
   "type": "object"

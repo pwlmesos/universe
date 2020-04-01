@@ -6,16 +6,10 @@
             "libmesos-bundle-tar-gz": "https://downloads.mesosphere.com/libmesos-bundle/libmesos-bundle-1.11.0.tar.gz", 
             "bootstrap-zip": "https://downloads.mesosphere.com/dcos-commons/artifacts/0.55.2/bootstrap.zip",
             "scheduler-zip": "https://ecosystem-repo.s3.amazonaws.com/sdk/artifacts/0.55.2/operator-scheduler.zip",
-            "svc": "https://minio-test-bucket-pwleng.s3-us-west-2.amazonaws.com/miniod/artifacts/test/svc.yml", 
-            "minio-config": "https://minio-s3-bucket.s3.amazonaws.com/miniod/artifacts/0.1.1/config.json.mustache", 
-            "minio-init-sh": "https://minio-s3-bucket.s3.amazonaws.com/miniod/artifacts/0.1.1/init.sh", 
-            "minio-synchronize-sh": "https://minio-s3-bucket.s3.amazonaws.com/miniod/artifacts/0.1.1/synchronize-buckets.sh"
-        }, 
-        "container": {
-            "docker": {
-                "minio-cluster": "minio/minio:RELEASE.2020-02-07T04-56-50Z", 
-                "mc-cluster": "minio/mc:RELEASE.2020-02-14T19-35-50Z"
-            }
+            "svc": "https://miniod-ps-storage.s3-us-west-2.amazonaws.com/artifacts/1.1.1/svc.yml", 
+            "minio-config": "https://miniod-ps-storage.s3-us-west-2.amazonaws.com/artifacts/1.1.1/config.json.mustache", 
+            "minio-init-sh": "https://miniod-ps-storage.s3-us-west-2.amazonaws.com/artifacts/1.1.1/init.sh", 
+            "minio-synchronize-sh": "https://miniod-ps-storage.s3-us-west-2.amazonaws.com/artifacts/1.1.1/synchronize-buckets.sh"
         }
     }, 
     "images": {

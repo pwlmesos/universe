@@ -112,13 +112,13 @@
                 "docker_image": {
                     "title": "Base image for Minio Cluster container",
                     "type": "string",
-                    "description": "The docker image used for the minio cluster itself",
+                    "description": "The docker image used for the minio cluster itself\nMake sure docker name is correct for your docker repo. Be careful if pulling from a custom/offline universe",
                     "default": "minio/minio:RELEASE.2020-02-07T04-56-50Z"
                 },      
                 "docker_image_mc": {
                     "title": "Base image for the Minio Client container",
                     "type": "string",
-                    "description": "Docker Image used to run the Minio client, should be compatable with Minio Cluster version",
+                    "description": "Docker Image used to run the Minio client, should be compatable with Minio Cluster version\nMake sure docker name is correct for your docker repo. Be careful if pulling from a custom/offline universe",
                     "default": "minio/mc:RELEASE.2020-02-14T19-35-50Z"
                 },
                 "placement_constraint": {

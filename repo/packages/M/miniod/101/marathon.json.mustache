@@ -141,8 +141,8 @@
     "CACHE_DISK_TYPE": "{{minio.cache_disk_type}}",
     "MINIO_NODE_PORT": "{{minio.minio_port}}",
 
-    "MINIO_DOCKER_IMAGE": "{{resource.assets.container.docker.minio-cluster}}",
-    "MC_DOCKER_IMAGE": "{{resource.assets.container.docker.mc-cluster}}",
+    "MINIO_DOCKER_IMAGE": "{{minio.docker_image}}",
+    "MC_DOCKER_IMAGE": "{{minio.docker_image_mc}}",
 
     "JAVA_URI": "{{resource.assets.uris.jre-tar-gz}}",
     "MINIO_STATSD_JAR_URI": "{{resource.assets.uris.minio-statsd-jar}}",

@@ -1,19 +1,19 @@
 /converter @takirala @kaiwalyajoshi
 /repo/meta @takirala @kaiwalyajoshi
-/repo/packages/C/cassandra/ @mpereira @samvantran
-/repo/packages/C/confluent-*/ @zmalik @samvantran
-/repo/packages/D/data-science-engine/ @akirillov @samvantran 
-/repo/packages/D/datastax-dse/ @samvantran
-/repo/packages/D/datastax-ops/ @samvantran 
-/repo/packages/D/dcos-core-cli/ @janisz @makkes @drewvanstone @br-lewis
-/repo/packages/D/dcos-enterprise-cli/ @janisz @makkes @drewvanstone @br-lewis
-/repo/packages/E/elastic/ @mpereira @samvantran 
-/repo/packages/H/hdfs/ @samvantran 
-/repo/packages/H/hive-metastore/ @samvantran 
+/repo/packages/C/cassandra/ @kaiwalyajoshi
+/repo/packages/C/confluent-*/ @kaiwalyajoshi
+/repo/packages/D/datastax-*/ @kaiwalyajoshi
+/repo/packages/D/data-science-engine/ @akirillov 
+/repo/packages/D/dcos-core-cli/ @janisz @pierrebeitz @DominikDary
+/repo/packages/D/dcos-enterprise-cli/ @janisz @pierrebeitz @DominikDary
+/repo/packages/E/elastic/ @kaiwalyajoshi
+/repo/packages/H/hdfs/ @kaiwalyajoshi
+/repo/packages/H/hello-world/ @kaiwalyajoshi
+/repo/packages/H/hive-metastore/ @kaiwalyajoshi
 /repo/packages/J/jenkins @kaiwalyajoshi @takirala
-/repo/packages/K/kafka/ @zmalik @samvantran
-/repo/packages/K/kafka-zookeeper/ @zmalik @samvantran
-/repo/packages/K/kibana/ @mpereira @samvantran 
-/repo/packages/N/nifi/ @alexeygorobets @samvantran 
-/repo/packages/S/spark/ @akirillov @samvantran 
-/repo/packages/S/spark-history/ @akirillov @samvantran 
+/repo/packages/K/kafka*/ @zmalik @kaiwalyajoshi
+/repo/packages/M/marathon/ @timcharper @jeschkies
+/repo/packages/N/nifi/ @alexeygorobets @kaiwalyajoshi
+/repo/packages/P/portworx-*/ @kaiwalyajoshi
+/repo/packages/S/spark/ @akirillov  
+/repo/packages/S/spark-history/ @akirillov 

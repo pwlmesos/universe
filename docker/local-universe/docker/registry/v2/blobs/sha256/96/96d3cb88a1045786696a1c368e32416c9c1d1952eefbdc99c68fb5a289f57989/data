@@ -1,0 +1,51 @@
+{
+   "schemaVersion": 2,
+   "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+   "config": {
+      "mediaType": "application/vnd.docker.container.image.v1+json",
+      "size": 8211,
+      "digest": "sha256:06709a5fe78543933bfbec0eaaec9ef6397eb3c6a4d94d99be5a00cc2fb67ee9"
+   },
+   "layers": [
+      {
+         "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+         "size": 27092706,
+         "digest": "sha256:d832225a3550d35697fa4a1de85d7d3538473edabd5d4de1ef52fd9144a01a2c"
+      },
+      {
+         "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+         "size": 38963422,
+         "digest": "sha256:ca51f18ce6f83c5847c615564cdfaadf78a68798237b7c91e9b4c6763979f14f"
+      },
+      {
+         "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+         "size": 13489412,
+         "digest": "sha256:69ec923bda438eb0eaaef4e9f073d06d26b9051d87f369daf96109dcffd8e8d5"
+      },
+      {
+         "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+         "size": 31108550,
+         "digest": "sha256:0b12561599953093db63d8a6d5be2777027773e0de81bf4b90f716c4eb429e1d"
+      },
+      {
+         "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+         "size": 63793764,
+         "digest": "sha256:e0c73bdc912ec36d83948d105795d9eb78a90d24e0b73866b9e675a7f28c72f6"
+      },
+      {
+         "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+         "size": 139,
+         "digest": "sha256:fc5ebf4dd3bc4881a7c90c3100cdedc4d7a492d69b74439f3ae889ba9a257ef3"
+      },
+      {
+         "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+         "size": 50731855,
+         "digest": "sha256:b5d551668b2cea2ee35fdead21342f89674494f5c9e510bfe3f79f0d852551ec"
+      },
+      {
+         "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+         "size": 63790309,
+         "digest": "sha256:9bcc8f3f433a8fa250dee49cbaeb9dfeae927bb4f7ccbdfd0b91070f52e16e3f"
+      }
+   ]
+}

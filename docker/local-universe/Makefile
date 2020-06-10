@@ -33,14 +33,14 @@ gen-universe: clean
 	python3 $(REPO_BASE_DIR)/scripts/local-universe.py \
 		--repository $(REPO_BASE_DIR)/repo/packages/ \
 		--include "$(DCOS_PACKAGE_INCLUDE)" \
-		--dcos_version "$(DCOS_VERSION)"
-		--server_url "http://dev-universe.marathon.mesos:8085"
+		--dcos_version "$(DCOS_VERSION)" \
+		--server_url http://dev-universe.marathon.mesos:8085
 else
 gen-universe: clean
 	python3 $(REPO_BASE_DIR)/scripts/local-universe.py \
 		--repository $(REPO_BASE_DIR)/repo/packages/ \
 		--selected \
-		--dcos_version "$(DCOS_VERSION)"
+		--dcos_version "$(DCOS_VERSION)" \
 		--server_url "http://dev-universe.marathon.mesos:8085"
 endif
 
@@ -52,6 +52,7 @@ old-local-universe: clean
 	python3 $(REPO_BASE_DIR)/scripts/old-local-universe.py \
 		--repository $(REPO_BASE_DIR)/repo/packages/ \
 		--selected \
-		--dcos_version "$(DCOS_VERSION)"
+		--dcos_version "$(DCOS_VERSION)" \
+		--server_url http://dev-universe.marathon.mesos:8085
 	docker save -o local-universe.tar mesosphere/universe:latest
 	gzip local-universe.tar

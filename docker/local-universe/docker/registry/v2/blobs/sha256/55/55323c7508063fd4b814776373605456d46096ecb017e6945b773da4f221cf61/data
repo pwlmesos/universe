@@ -1,0 +1,51 @@
+{
+   "schemaVersion": 2,
+   "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+   "config": {
+      "mediaType": "application/vnd.docker.container.image.v1+json",
+      "size": 8194,
+      "digest": "sha256:124d0c29038bcfff8710bb50d502deb2281b6cd1ed4c3c6175a4abbf9d357338"
+   },
+   "layers": [
+      {
+         "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+         "size": 27098182,
+         "digest": "sha256:9ff20667afccffe5e89a633dd15cda0a678e6933f3bad11866b7833f85dcc890"
+      },
+      {
+         "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+         "size": 38966136,
+         "digest": "sha256:ff2cdf265c05b5c9c99404ba5854dc5a9d5eeac5decb82b41eaab4bd3285b877"
+      },
+      {
+         "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+         "size": 13086504,
+         "digest": "sha256:eef24737ec0aa4530cb5817436642c64f4e18a33f02207b242533aa70f03b659"
+      },
+      {
+         "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+         "size": 28654958,
+         "digest": "sha256:dec1e32bd385f4b9328b3351c1f996fb46b33f1888d53b5d64bb1c174a6cbb0d"
+      },
+      {
+         "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+         "size": 63793744,
+         "digest": "sha256:e85839ad74bf9ac924014a0a6894826e854dd7b957d9c4b4d56b9cf0bd924888"
+      },
+      {
+         "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+         "size": 139,
+         "digest": "sha256:cdb8928d87bd3e3fcf865b881d7654c6470468105e7ef35739c50b3cc5ca2295"
+      },
+      {
+         "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+         "size": 48475882,
+         "digest": "sha256:6f97d999615f48429b242d7392dbd903f356244c1dd52bc310dc28df6412b2ea"
+      },
+      {
+         "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+         "size": 63790339,
+         "digest": "sha256:3ab47721043ec30def2466fadc3cadbd1037bf5fcbf2fc1e91b6de03f041785f"
+      }
+   ]
+}

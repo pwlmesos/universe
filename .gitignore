@@ -10,4 +10,5 @@ repo/packages/T/tests
 
 config-reference.md
 
+docker/local-universe/docker/*
 .DS_Store
